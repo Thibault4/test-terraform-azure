@@ -1,8 +1,8 @@
 <?php
 
-$database_host      = $_ENV['database-ip'];
-$database_username  = $_ENV['database-username'];
-$database_password  = $_ENV['database-password'];
+$database_host      = $_ENV['database_ip'];
+$database_username  = $_ENV['database_username'];
+$database_password  = $_ENV['database_password'];
 
 echo "host:$host username:$username password:$password";
 echo "<br>";
