@@ -1,26 +1,21 @@
 <?php
-echo "Works! 1.1.3";
-$ip       = $_ENV['database_ip'];
-$username = $_ENV['database_user'];
-$password = $_ENV['database_password'];
 
-// echo "ip=$ip username=$username password=$password";
+$database_host      = $_ENV['database-ip'];
+$database_username  = $_ENV['database-username'];
+$database_username  = $_ENV['database-password'];
 
-$conn = pg_connect("host=thibaultpostgre.postgreas.database.azure.com username=thibault@thibaultpostgre password=jira06Ra dbname=localdb");
-if ($conn) {
-  echo 'connected';
-} else {
-  echo 'not connected';
+
+try {
+  $pdo = new PDO('pgsql:host=thibaultpostgre.postgres.database.azure.com;port=5432;dbname=localdb', 'thibault@thibaultpostgre', 'jira06Ra');
+} catch (Exception $e) {
+  echo 'Exception reçue : ', $e->getMessage(), "\n";
 }
-$result = pg_query($conn, "SELECT * FROM products");
-        if (!$result) {
-            echo json_encode(array("error" => "An error occurred."));
-            exit;
-        }
-        $response = array();
-        while ($row = pg_fetch_row($result)) {
-            $response[] = array("Id" => $row[0], "Name" => $row[1], "Desc" => $row[2], "Prix" => $row[3]);
-        }
-        header('Content-Type: application/json');
-        echo json_encode($response, JSON_PRETTY_PRINT);
+
+$stmt = $pdo->query("SELECT * FROM products");
+while ($row = $stmt->fetch()) {
+  $response[] = array("Id" => $row[0], "Name" => $row[1], "Desc" => $row[2], "Prix" => $row[3]);
+}
+header('Content-Type: application/json');
+echo json_encode($response, JSON_PRETTY_PRINT);
+$pdo->$connection = null;
 ?>
