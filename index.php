@@ -1,5 +1,5 @@
 <?php
-echo "Works! 1.1.1";
+echo "Works! 1.1.2";
 $ip       = $_ENV['database_ip'];
 $username = $_ENV['database_user'];
 $password = $_ENV['database_password'];
