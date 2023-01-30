@@ -7,6 +7,11 @@ $password = $_ENV['database_password'];
 echo "ip=$ip username=$username password=$password";
 
 $conn = pg_connect("host=$ip username=$username password=$password db=localdb");
+if ($con) {
+  echo 'connected';
+} else {
+  echo 'not connected';
+}
 $result = pg_query($conn, "SELECT * FROM products");
         if (!$result) {
             echo json_encode(array("error" => "An error occurred."));
