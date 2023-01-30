@@ -4,7 +4,9 @@ $database_host      = $_ENV['database_ip'];
 $database_username  = $_ENV['database_username'];
 $database_password  = $_ENV['database_password'];
 
-echo "host:$host username:$username password:$password";
+echo "host " + $database_host;
+echo "username " + $database_username;
+echo "pass " + $database_password;
 echo "<br>";
 
 try {
