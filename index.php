@@ -6,7 +6,7 @@ $password = $_ENV['database_password'];
 
 echo "ip=$ip username=$username password=$password";
 
-$conn = pg_connect("host=$ip username=$username password=$password db=localdb");
+$conn = pg_connect("host=thibaultpostgre.postgreas.database.azure.com username=thibault@thibaultpostgre.postgres.database.azure.com password=jira06Ra db=localdb");
 if ($conn) {
   echo 'connected';
 } else {
