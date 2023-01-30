@@ -1,25 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Liste des produits</title>
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    th, td {
-      border: 1px solid black;
-      padding: 8px;
-      text-align: left;
-    }
-    th {
-      background-color: #f2f2f2;
-    }
-  </style>
-</head>
 <body>
+  <a href="https://app-service-thibault-boulay.azurewebsites.net">API</a>
   <h1>Liste des produits</h1>
-  <table id="actors-table">
+  <table id="data-table">
     <tr>
       <th>Id</th>
       <th>Nom</th>
@@ -28,7 +12,7 @@
     </tr>
   </table>
   <script>
-    const table = document.querySelector("#actors-table");
+    const table = document.querySelector("#data-table");
     fetch("https://app-service-thibault-boulay.azurewebsites.net")
       .then(response => response.json())
       .then(actors => {
