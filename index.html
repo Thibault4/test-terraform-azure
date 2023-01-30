@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Liste des produits</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Liste des produits</h1>
+  <table id="actors-table">
+    <tr>
+      <th>Id</th>
+      <th>Nom</th>
+      <th>Description</th>
+      <th>Prix</th>
+    </tr>
+  </table>
+  <script>
+    const table = document.querySelector("#actors-table");
+    fetch("https://app-service-thibault-boulay.azurewebsites.net")
+      .then(response => response.json())
+      .then(actors => {
+        actors.forEach(actor => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${actor.Id}</td>
+            <td>${actor.name}</td>
+            <td>${actor.description}</td>
+            <td>${actor.price}</td>
+          `;
+          table.appendChild(row);
+        });
+      });
+  </script>
+</body>
+</html>
