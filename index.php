@@ -14,8 +14,8 @@ $stmt = $pdo->query("SELECT * FROM products");
 while ($row = $stmt->fetch()) {
   $response[] = array("Id" => $row[0], "Name" => $row[1], "Desc" => $row[2], "Prix" => $row[3]);
 }
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Origin:*");
+header("Access-Control-Allow-Headers:*");
 header('Content-Type: application/json');
 echo json_encode($response, JSON_PRETTY_PRINT);
 $pdo->$connection = null;
