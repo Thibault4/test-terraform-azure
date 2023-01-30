@@ -4,7 +4,7 @@ $ip       = $_ENV['database_ip'];
 $username = $_ENV['database_user'];
 $password = $_ENV['database_password'];
 
-$conn = pg_connect("host=$ip username=$username password=$password db=localdb")
+$conn = pg_connect("host=$ip username=$username password=$password db=localdb");
 $result = pg_query($conn, "SELECT * FROM products");
         if (!$result) {
             echo json_encode(array("error" => "An error occurred."));
