@@ -16,7 +16,7 @@ while ($row = $stmt->fetch()) {
 }
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
-header('Content-Type: application/json');
-echo json_encode($response, JSON_PRETTY_PRINT);
+header("Content-Type: application/json");
+echo json_encode($response);
 $pdo->$connection = null;
 ?>
