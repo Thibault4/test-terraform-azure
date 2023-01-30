@@ -1,14 +1,10 @@
 <?php
-echo "Works 1.0.0!";
+echo "Works! 1.1.1";
 $ip       = $_ENV['database_ip'];
 $username = $_ENV['database_user'];
 $password = $_ENV['database_password'];
 
-$server = "servsqltf-tp.postgres.database.azure.com";
-$username = "postgresteiva@servsqltf-tp.postgres.database";
-$password = "Password####PG";
-$db = "pg_teiva_francis";
-$conn = pg_connect("host=$server dbname=$db user=$username password=$password");
+$conn = pg_connect("host=$ip username=$username password=$password db=localdb")
 $result = pg_query($conn, "SELECT * FROM products");
         if (!$result) {
             echo json_encode(array("error" => "An error occurred."));
