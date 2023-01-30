@@ -4,7 +4,7 @@ $ip       = $_ENV['database_ip'];
 $username = $_ENV['database_user'];
 $password = $_ENV['database_password'];
 
-echo "ip=$ip username=$username password=$password"
+echo "ip=$ip username=$username password=$password";
 
 $conn = pg_connect("host=$ip username=$username password=$password db=localdb");
 $result = pg_query($conn, "SELECT * FROM products");
