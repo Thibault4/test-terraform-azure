@@ -4,6 +4,8 @@ $database_host      = $_ENV['database-ip'];
 $database_username  = $_ENV['database-username'];
 $database_password  = $_ENV['database-password'];
 
+echo $_ENV;
+
 try {
   $pdo = new PDO("pgsql:host=$database_host;port=5432;dbname=localdb", $database_username, $database_password);
 } catch (Exception $e) {
