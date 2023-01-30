@@ -1,4 +1,5 @@
 <?php
+echo "Works!";
 $ip       = $_ENV['database_ip'];
 $username = $_ENV['database_user'];
 $password = $_ENV['database_password'];
